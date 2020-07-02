@@ -6,9 +6,9 @@ module.exports = app => {
 
   const {
     orders: ordersMock,} = ordersDB;
-
+//metodo GET
   controller.listOrders = (req, res) => res.status(200).json(ordersDB);
-
+// metodo POST
   controller.saveOrders = (req, res) => {
     ordersMock.pattern.push({
       id: uuidv4(),
@@ -22,7 +22,7 @@ module.exports = app => {
 
     res.status(201).json(ordersMock);
   };
-
+//metodo DELETE
   controller.removeOrders = (req, res) => {
     const {
       orderId,
@@ -45,7 +45,7 @@ module.exports = app => {
       });
     }
   };
-
+//metodo PUT
   controller.updateOrders = (req, res) => {
     const {
       orderId,

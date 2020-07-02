@@ -6,9 +6,9 @@ module.exports = app => {
 
   const {
     users: usersMock,} = usersDB;
-
+//metodo GET
   controller.listUsers = (req, res) => res.status(200).json(usersDB);
-
+// metodo POST
   controller.saveUsers = (req, res) => {
     usersMock.pattern.push({
       id: uuidv4(),
@@ -22,7 +22,7 @@ module.exports = app => {
 
     res.status(201).json(usersMock);
   };
-
+// metodo DELETE
   controller.removeUsers = (req, res) => {
     const {
       userId,
@@ -46,6 +46,7 @@ module.exports = app => {
     }
   };
 
+//metodo PUT
   controller.updateUsers = (req, res) => {
     const {
       userId,
