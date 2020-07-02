@@ -6,9 +6,9 @@ module.exports = app => {
 
   const {
     flores: floresMock,} = floresDB;
-
+//metodo GET
   controller.listFlores = (req, res) => res.status(200).json(floresDB);
-
+//metodo POST
   controller.saveFlores = (req, res) => {
     floresMock.pattern.push({
       id: uuidv4(),
@@ -24,7 +24,7 @@ module.exports = app => {
 
     res.status(201).json(floresMock);
   };
-
+//metodo DELETE
   controller.removeFlores = (req, res) => {
     const {
       produtoId,
@@ -47,7 +47,7 @@ module.exports = app => {
       });
     }
   };
-
+// metodo PUT
   controller.updateFlores = (req, res) => {
     const {
       produtoId,
