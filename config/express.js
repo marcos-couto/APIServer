@@ -1,23 +1,21 @@
 const express    = require('express');
 const bodyParser = require('body-parser');
-const config     = require('config');
+const config   = require('config');
 const consign    = require('consign');
 
 module.exports = () => {
-  const app = express();
+ const app = express();
 
-  // SETANDO VARIÁVEIS DA APLICAÇÃO
-  app.set('port', process.env.PORT || config.get('server.port'));
+ app.set('port', process.env.PORT || config.get('server.port'));
 
-  // MIDDLEWARES
-  app.use(bodyParser.json());
+ app.use(bodyParser.json());
 
-  // ENDPOINTS
-  consign({cwd: 'api'})
-    .then('data')
-    .then('controllers')
-    .then('routes')
-    .into(app);
 
-  return app;
+consign({cwd: 'api'})
+  .then('pattern')
+  .then('methods')
+  .then('rtndir')
+  .into(app);
+
+ return app;
 };
