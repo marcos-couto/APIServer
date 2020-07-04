@@ -1,4 +1,4 @@
-onst app = require('./config/express')();
+const app = require('./config/express')();
 const port = app.get('port');
 
 // RODANDO NOSSA APLICAÇÃO NA PORTA SETADA
